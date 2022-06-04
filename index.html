@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p id="msg"></p>
+        </div>
+    </div>
+    <h1>Tic-Tac-Toe</h1>
+    <div class="row">
+        <div id="1" class="entry" onclick="check(this)"></div>
+        <div id="2" class="entry" onclick="check(this)"></div>
+        <div id="3" class="entry" onclick="check(this)"></div>
+    </div>
+    <div class="row">
+        <div id="4" class="entry" onclick="check(this)"></div>
+        <div id="5" class="entry" onclick="check(this)"></div>
+        <div id="6" class="entry" onclick="check(this)"></div>
+    </div>
+    <div class="row">
+        <div id="7" class="entry" onclick="check(this)"></div>
+        <div id="8" class="entry" onclick="check(this)"></div>
+        <div id="9" class="entry" onclick="check(this)"></div>
+    </div>
+    <h1><span id="turn">X</span><span>'s turn</span></h1>
+    <button onclick="reset()">Reset</button>
+</body>
+</html>
