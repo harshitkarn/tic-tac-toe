@@ -40,14 +40,31 @@ function checkWin(){
         temp+=document.getElementById(i).innerText;
     arr.push(temp);
     if(arr.includes("XXX"))
-        showMessage("X Won");
+        showMessage("X Won",arr.indexOf("XXX"));
     else if(arr.includes("OOO"))
-        showMessage("O Won");
+        showMessage("O Won",arr.indexOf("OOO"));
     else if(count == 9)
-        showMessage('Match Draw')
+        showMessage('Match Draw',-1)
 }
 
-function showMessage(msg){
+function showMessage(msg,index){
+    if(index!=-1){
+        var rect = document.getElementById('1').getBoundingClientRect();
+        var img = document.getElementById('img');
+        img.style.left = ""+(rect.left+18)+"px";
+        img.style.top = "102px";
+        if(index<3){
+            img.src = "./img/180.png";
+            img.style.top = 102-(108*(1-index))+"px";
+        }
+        else if(index<6){
+            img.src = "./img/90.png";
+            img.style.left = ""+(rect.left+(18-(108*(4-index))))+"px";
+        }
+        else if(index==6)img.src = "./img/135.png";
+        else img.src = "./img/45.png";
+        img.style.display="block";
+    }
     document.getElementById('msg').innerText = msg;
     var modal = document.getElementById("myModal");
     var span = document.getElementsByClassName("close")[0];
@@ -68,4 +85,5 @@ function reset(){
     for(var i=1;i<=9;i++)
         document.getElementById(i).innerText = '';
     document.getElementById('turn').innerText = 'X';
+    document.getElementById('img').style.display = 'none';
 }
